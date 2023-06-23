@@ -1,0 +1,40 @@
+.diy-form {
+  .head {
+    height: 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #303133;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .h3-title {
+    height: 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #303133;
+    line-height: 22px;
+    margin-bottom: 35px;
+  }
+  .upload-text {
+    color: #606266;
+    margin-bottom: 10px;
+  }
+  .input-width {
+    width: 170px;
+  }
+  .flex-box {
+    display: flex;
+    align-items: center;
+  }
+  .ib {
+    display: inline-block;
+  }
+  .tip {
+    color: #c0c4cc;
+    margin-bottom: 10px;
+  }
+  .grey-text {
+    color: #909399;
+  }
+}
