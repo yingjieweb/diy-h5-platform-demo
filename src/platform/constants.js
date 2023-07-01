@@ -8,7 +8,6 @@ export const ENUM_CARD = {
   paragraph: 6,
   spacing: 7, // 间距卡片
   swiper: 8, // 轮播图
-  previewPic: 9, // 预览图（群码卡片）
 };
 
 export const MapEnumToComName = {
@@ -20,7 +19,6 @@ export const MapEnumToComName = {
   6: "文本段落",
   7: "上下间距",
   8: "轮播图",
-  9: "群码卡片",
 };
 
 export const baseCard = {
@@ -38,11 +36,6 @@ export const contentCardList = [
         url: "https://t1.focus-img.cn/applet/2021-08-20/6a6953fbd9a042208dce5d754881802a.jpg",
         text: "单列图片",
         type: ENUM_CARD.onePic,
-      },
-      {
-        url: "https://t1.focus-img.cn/applet/2021-10-20/e87f6b3710b64011b6e87fd43364ee1a.jpg",
-        text: "群码卡片",
-        type: ENUM_CARD.previewPic,
       },
       {
         url: "https://t1.focus-img.cn/applet/2021-08-20/670e94f3cc2945af9a93403c99795324.jpg",

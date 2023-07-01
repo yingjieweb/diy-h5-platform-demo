@@ -6,14 +6,12 @@ import headTitle from "./components/forms/baseCard/headTitle";
 import paragraph from "./components/forms/baseCard/paragraph";
 import spacing from "./components/forms/baseCard/spacing";
 import swiper from "./components/forms/baseCard/swiper";
-import previewPic from "./components/forms/baseCard/previewPic";
 
 const otherMap = new Map([
   [ENUM_CARD.headTitle, headTitle],
   [ENUM_CARD.paragraph, paragraph],
   [ENUM_CARD.spacing, spacing],
   [ENUM_CARD.swiper, swiper],
-  [ENUM_CARD.previewPic, previewPic],
 ]);
 
 const comRules = [
@@ -77,17 +75,6 @@ export const actInfoMap = new Map([
         ENUM_CARD.onePic,
         { type: ENUM_CARD.onePic },
         { pics: [] }
-      );
-    },
-  ],
-  [
-    ENUM_CARD.previewPic,
-    function (key) {
-      return vForm(
-        key,
-        ENUM_CARD.previewPic,
-        { type: ENUM_CARD.previewPic },
-        { showPicUrl: "", margin: true }
       );
     },
   ],

@@ -130,17 +130,6 @@
       ></div>
       <div v-else>自定义间距</div>
     </div>
-    <!-- 群码卡片 预览图 -->
-    <div
-      class="preview-pic"
-      v-if="item.type == ENUM_CARD.previewPic"
-      :class="item.ow.margin ? 'showMargin' : ''"
-    >
-      <img
-        :src="(item.ow && item.ow.showPicUrl) || DefaultImgMap.pic1"
-        class="one-pic-img"
-      />
-    </div>
   </div>
 </template>
 
