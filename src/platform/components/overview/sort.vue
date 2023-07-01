@@ -1,6 +1,6 @@
 <template>
   <div class="sort-box">
-    <div class="title">组件</div>
+    <div class="title">缩略图</div>
     <div class="list" ref="sort-list">
       <div
         class="item"
