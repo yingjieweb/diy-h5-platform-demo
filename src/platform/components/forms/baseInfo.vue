@@ -29,64 +29,8 @@
       <el-form-item label="标题背景颜色" prop="titleBgColor">
         <el-color-picker v-model="formData.titleBgColor"></el-color-picker>
       </el-form-item>
-      <el-form-item label="页面右下角悬浮">
-        <el-radio-group v-model="formData.rightBtn">
-          <el-radio :label="0">不显示</el-radio>
-          <el-radio :label="1">分享按钮</el-radio>
-          <el-radio :label="2">自定义</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <template v-if="formData.rightBtn == 2">
-        <el-form-item prop="inletImg">
-          <image-upload
-            class="ib"
-            v-model="formData.inletImg"
-            :beforeUpload="beforeUpload"
-          ></image-upload>
-        </el-form-item>
-        <el-form-item prop="inletLink">
-          <el-input
-            v-model="formData.inletLink"
-            class="input-width"
-            placeholder="请输入跳转链接"
-          ></el-input>
-        </el-form-item>
-      </template>
       <el-form-item label="页面背景颜色" prop="bgColor">
         <el-color-picker v-model="formData.bgColor"></el-color-picker>
-      </el-form-item>
-      <el-form-item label="分享卡片标题">
-        <el-input
-          v-model="formData.shareTitle"
-          class="input-width"
-          maxlength="28"
-          placeholder="请输入分享卡片标题"
-        ></el-input>
-        <span class="grey-text"
-          >&nbsp;{{
-            (formData.shareTitle && formData.shareTitle.length) || 0
-          }}/28</span
-        >
-      </el-form-item>
-      <el-form-item label="分享卡片图片">
-        <el-radio-group v-model="formData.shareCardMode">
-          <el-radio :label="0">默认</el-radio>
-          <el-radio :label="1">自定义</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item v-if="formData.shareCardMode == 1" prop="shareCardBg">
-        <image-upload
-          class="ib"
-          v-model="formData.shareCardBg"
-          :beforeUpload="beforeUpload"
-        ></image-upload>
-      </el-form-item>
-      <el-form-item label="页面分享海报">
-        <image-upload
-          class="ib"
-          v-model="formData.sharePoster"
-          :beforeUpload="beforeUploadSharePoster"
-        ></image-upload>
       </el-form-item>
     </el-form>
   </div>
@@ -102,16 +46,6 @@ function checkColor(rule, value, callback) {
     callback();
   }
 }
-const checkLink = (rule, value, callback) => {
-  let pattern = /(^https:\/\/)/g;
-  if (!value) {
-    callback("请输入跳转链接");
-  } else if (value.length && !pattern.test(value)) {
-    callback("请检查链接格式");
-  } else {
-    callback();
-  }
-};
 
 export default {
   mixins: [formMix],
@@ -122,14 +56,6 @@ export default {
         titleColor: "#000000",
         titleBgColor: "#ffffff",
         bgColor: "#f5f5f6",
-        shareTitle: "",
-        shareCardMode: 0,
-        shareCardBg: "",
-        sharePoster: "",
-        cityId: 1,
-        rightBtn: 0,
-        inletImg: "",
-        inletLink: "",
       },
       rules: {
         title: [{ required: true, message: "请输入标题", trigger: "blur" }],
@@ -137,11 +63,6 @@ export default {
           { required: true, message: "请选择颜色", trigger: "blur" },
         ],
         bgColor: [{ validator: checkColor, trigger: "blur" }],
-        shareCardBg: [
-          { required: true, message: "请上传图片", trigger: "blur" },
-        ],
-        inletImg: [{ required: true, message: "请上传图片", trigger: "blur" }],
-        inletLink: [{ validator: checkLink, trigger: "blur" }],
       },
     };
   },
@@ -154,37 +75,14 @@ export default {
   },
   created() {
     if (this.propFormData.type) {
-      const {
-        title,
-        titleColor,
-        titleBgColor,
-        bgColor,
-        shareTitle,
-        shareCardMode,
-        shareCardBg,
-        sharePoster,
-        cityId = 1,
-        rightBtn = 0,
-        inletImg = "",
-        inletLink = "",
-      } = this.propFormData;
+      const { title, titleColor, titleBgColor, bgColor } = this.propFormData;
       this.formData = {
         title,
         titleColor: titleColor || "#000000",
         titleBgColor,
         bgColor,
-        shareTitle,
-        shareCardMode,
-        shareCardBg,
-        sharePoster,
-        cityId,
-        rightBtn,
-        inletImg,
-        inletLink,
       };
     }
-    const cityId = 1;
-    this.formData.cityId = Number(cityId);
   },
   methods: {
     beforeUploadSharePoster(file) {
