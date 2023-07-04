@@ -2,7 +2,10 @@
   <div class="overview-wrapper">
     <div
       class="overview-part"
-      :style="{ 'padding-top': baseInfo.title ? '0' : '20px' }"
+      :style="{
+        'padding-top': baseInfo.title ? '0' : '20px',
+        background: baseInfo.bgColor,
+      }"
     >
       <div
         class="title"
