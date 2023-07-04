@@ -7,25 +7,23 @@
       <div class="tip">支持2-6张图片</div>
       <div class="tip">建议图片宽度为690px，高度为230px</div>
       <div class="flex-box" v-for="(item, index) in formData.pics" :key="index">
-        <el-form-item :prop="'pics.' + index + '.imgUrl'" :rules="rules.imgUrl">
-          <image-upload
-            class="ib"
-            v-model="item.imgUrl"
-            :beforeUpload="beforeUpload"
-          ></image-upload>
-        </el-form-item>
-        <div class="right">
-          <el-form-item
-            label="链接"
-            :prop="'pics.' + index + '.link'"
-            :rules="rules.link"
-          >
+        <div class="left">
+          <el-form-item label="图片链接" :prop="'pics.' + index + '.imgUrl'">
+            <el-input
+              v-model="item.imgUrl"
+              class="input-width"
+              placeholder="请输入图片链接"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="跳转链接" :prop="'pics.' + index + '.link'">
             <el-input
               v-model="item.link"
               class="input-width"
               placeholder="请输入链接"
             ></el-input>
           </el-form-item>
+        </div>
+        <div class="right">
           <el-button
             type="danger"
             v-if="formData.pics.length > 2"
@@ -54,14 +52,6 @@
 import formMix from "../form-mix";
 import { ENUM_CARD } from "../../../constants";
 
-const checkLink = (rule, value, callback) => {
-  let pattern = /(^https:\/\/)/g;
-  if (value.length && !pattern.test(value)) {
-    callback("请检查链接格式");
-  } else {
-    callback();
-  }
-};
 const emptyPic = () => ({
   imgUrl: "",
   text: "",
@@ -82,10 +72,6 @@ export default {
         pics: [],
       },
       ENUM_CARD,
-      rules: {
-        imgUrl: [{ required: true, message: "请上传图片", trigger: "change" }],
-        link: [{ validator: checkLink, trigger: "blur" }],
-      },
     };
   },
   computed: {
@@ -142,18 +128,17 @@ export default {
     margin-bottom: 10px;
   }
   .input-width {
-    width: 170px;
-  }
-  .flex-box {
-    display: flex;
-    align-items: center;
-  }
-  .ib {
-    display: inline-block;
+    width: 280px;
   }
   .tip {
     color: #c0c4cc;
     margin-bottom: 10px;
+  }
+  .flex-box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
   }
 }
 </style>
