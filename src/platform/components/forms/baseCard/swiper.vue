@@ -19,7 +19,7 @@
             <el-input
               v-model="item.link"
               class="input-width"
-              placeholder="请输入链接"
+              placeholder="请输入跳转链接"
             ></el-input>
           </el-form-item>
         </div>

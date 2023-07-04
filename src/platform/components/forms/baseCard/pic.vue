@@ -27,14 +27,14 @@
           <el-input
             v-model="item.link"
             class="input-width"
-            placeholder="请输入链接"
+            placeholder="请输入跳转链接"
           ></el-input>
         </el-form-item>
         <el-form-item label="展示文本" v-if="type < 3">
           <el-input
             v-model="item.text"
             class="input-width"
-            placeholder="请输入文本"
+            placeholder="请输入展示文本"
           ></el-input>
         </el-form-item>
       </div>

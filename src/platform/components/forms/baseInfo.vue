@@ -5,8 +5,8 @@
     <el-form
       :model="formData"
       ref="form"
-      label-width="130px"
-      label-position="left"
+      label-width="110px"
+      label-position="right"
       :rules="rules"
     >
       <el-form-item label="页面标题" prop="title">
@@ -136,9 +136,6 @@ export default {
   }
   .input-width {
     width: 170px;
-  }
-  .ib {
-    margin-top: 10px;
   }
   .grey-text {
     color: #909399;

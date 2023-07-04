@@ -5,11 +5,11 @@
     <el-form
       :model="formData"
       ref="form"
-      label-width="130px"
-      label-position="left"
+      label-width="90px"
+      label-position="right"
       :rules="rules"
     >
-      <el-form-item label="高度" prop="height">
+      <el-form-item label="高度(px)" prop="height">
         <el-input
           v-model.number="formData.height"
           placeholder="请输入高度"
@@ -90,9 +90,6 @@ export default {
   }
   .input-width {
     width: 170px;
-  }
-  .ib {
-    margin-top: 10px;
   }
 }
 </style>

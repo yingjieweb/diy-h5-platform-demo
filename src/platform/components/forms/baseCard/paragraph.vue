@@ -5,8 +5,8 @@
     <el-form
       :model="formData"
       ref="form"
-      label-width="130px"
-      label-position="left"
+      label-width="80px"
+      label-position="right"
       :rules="rules"
     >
       <el-form-item label="内容" prop="text">
@@ -90,9 +90,6 @@ export default {
   }
   .input-width {
     width: 170px;
-  }
-  .ib {
-    margin-top: 10px;
   }
 }
 </style>

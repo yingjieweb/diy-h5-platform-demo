@@ -4,9 +4,9 @@
     <h3 class="h3-title">标题</h3>
     <el-form
       :model="formData"
-      label-position="left"
       ref="form"
-      label-width="120px"
+      label-width="80px"
+      label-position="right"
       :rules="rules"
     >
       <el-form-item label="标题" prop="title">
@@ -35,11 +35,10 @@
       <div class="tip">居左标题建议图标尺寸为 56*56px</div>
       <div class="tip">居中标题建议图标为 750*100px</div>
       <el-form-item label="缩略图">
-        <image-upload
-          class="ib"
+        <el-input
           v-model="formData.imgUrl"
-          :beforeUpload="beforeUpload"
-        ></image-upload>
+          placeholder="请输入图片链接"
+        ></el-input>
       </el-form-item>
       <el-form-item label="跳转链接" prop="link">
         <el-input
@@ -131,9 +130,6 @@ export default {
   .flex-box {
     display: flex;
     align-items: center;
-  }
-  .ib {
-    margin-bottom: 10px;
   }
   .tip {
     color: #c0c4cc;
