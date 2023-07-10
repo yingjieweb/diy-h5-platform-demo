@@ -23,4 +23,9 @@ export default {
   display: flex;
   justify-content: center;
 }
+* {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
 </style>
